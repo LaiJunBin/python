@@ -1,6 +1,8 @@
 from selenium import webdriver
 import os
-driverPath = 'D:\geckodriver\chromedriver.exe'
+import json
+driverPath = 'C:\geckodriver\chromedriver.exe'
+record = {}
 browser = webdriver.Chrome(driverPath)
 url = 'https://www.com.tw/techreg/'
 browser.get(url)
@@ -28,9 +30,14 @@ schoolSet = list(map(lambda x: list(x.keys()).pop(), titleDict.values()))
 printTitle = ''
 for i in range(len(numberSet)):
     printTitle += str(numberSet[i])+':'+schoolSet[i]+'\n'
+titleDict['printTitle']=printTitle
+with open('record.json','w+',encoding='utf8') as jsobj:
+    writeData = json.dumps(titleDict,ensure_ascii=False)
+    print(writeData)
+    jsobj.write(writeData)
 def init():
     while True:
-        print(printTitle)
+        print(titleDict['printTitle'])
         index = int(input('請輸入要查詢的學校編號:\n'))
         i = 1
         classDict,classDictRecord,classDictTitle = {},{},{}
