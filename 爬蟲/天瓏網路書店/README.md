@@ -5,7 +5,9 @@
 * ## beautifulsoup4
 * ## xlsxwriter
 ## 執行過程:
-### 當前還沒有GUI及搜尋功能，之後會補上。
-![過程圖](images/resultTime.png)
+### GIF
+![過程GIF](images/process.gif)
+### 圖片
+![過程-結果圖](images/resultTime.png)
 ## 執行結果-所有中文書籍(Excel)
-![Xlsx結果](images/xlsx.png)
+![xlsx結果](images/xlsx.png)
