@@ -1,4 +1,4 @@
-itch:發癢
+﻿itch:發癢
 tramp:遊民
 arch:拱形結構
 cry out:大叫
@@ -35,7 +35,7 @@ symbolic:象徵的
 restore:恢復
 cure:治癒
 patient:病人
-palace:供電
+palace:宮殿
 spice:增添趣味
 lift:感到開心
 aspect:層面
