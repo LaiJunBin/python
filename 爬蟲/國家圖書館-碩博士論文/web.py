@@ -53,18 +53,21 @@ except Exception:
 finally:
     print('匯出成Excel中...')
     for key,values in record.items():
-        if '目次' in values.keys():
-            worksheetTitle = ''.join(e for e in key if e.isalnum())
-            worksheet[1] = workbook[1].add_worksheet(worksheetTitle[:15])
-            row[1],col[1] = 0,0
-            for title in field:
-                worksheet[1].write(row[1],col[1],title)
-                worksheet[1].write(row[1],col[1]+1,values.setdefault(title,''))
-                row[1]+=1
-        else:
-            for i in range(3):
-                worksheet[2].write(row[2],col[2]+i,values.setdefault(field[i],''))
-            row[2]+=1
+        try:
+            if '目次' in values.keys():
+                worksheetTitle = ''.join(e for e in key if e.isalnum())
+                worksheet[1] = workbook[1].add_worksheet(worksheetTitle[:15])
+                row[1],col[1] = 0,0
+                for title in field:
+                    worksheet[1].write(row[1],col[1],title)
+                    worksheet[1].write(row[1],col[1]+1,values.setdefault(title,''))
+                    row[1]+=1
+            else:
+                for i in range(3):
+                    worksheet[2].write(row[2],col[2]+i,values.setdefault(field[i],''))
+                row[2]+=1
+        except Exception:
+            pass
 print('處理完成!')
 workbook[1].close()
 workbook[2].close()
